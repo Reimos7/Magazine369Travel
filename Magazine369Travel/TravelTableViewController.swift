@@ -14,7 +14,8 @@ class TravelTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 520
+        tableView.rowHeight = 530
+        self.navigationItem.title = "SeSAC TRAVEL"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,12 +24,36 @@ class TravelTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
-        cell.cardImageView.image = UIImage(systemName: "star.fill")
-        cell.titleLabel.text = "dd"
-        cell.subtitleLabel.text = "test"
-        cell.dateLabel.text = "25년 11월 11일"
+        let magazinInfoCell = magazineInfo.magazine[indexPath.row]
+        let url = URL(string: magazinInfoCell.photo_image)
+        
+        cell.cardImageView.kf.setImage(with: url)
+        cell.cardImageView.contentMode = .scaleAspectFill
+        setupRadiusDegree(thing: cell.cardImageView, radiusDegree: 14)
+        
+        
+        cell.titleLabel.text = magazinInfoCell.title
+        cell.subtitleLabel.text = magazinInfoCell.subtitle
+        cell.dateLabel.text = magazinInfoCell.date
+        
+        cell.titleLabel.numberOfLines = 2
+        cell.titleLabel.font = .boldSystemFont(ofSize: 22)
+        cell.subtitleLabel.textColor = .lightGray
+        cell.subtitleLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        
+        cell.titleLabel.textAlignment = .left
+        cell.subtitleLabel.textAlignment = .left
+        cell.dateLabel.textAlignment = .right
         
         return cell
+    }
+    
+    // 모서리 둥글기를 조절
+    private func setupRadiusDegree(thing: UIView, radiusDegree: CGFloat) {
+        thing.clipsToBounds = true
+        thing.layer.cornerRadius = radiusDegree
+        //thing.layer.borderWidth = 1
+        
     }
     
 
