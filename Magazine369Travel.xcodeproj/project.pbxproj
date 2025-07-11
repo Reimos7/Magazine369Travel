@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E75F5E72E2100DB00D5F6AD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E75F5E62E2100DB00D5F6AD /* .gitignore */; };
+		6E75F6042E213CC100D5F6AD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6E75F6032E213CC100D5F6AD /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E75F6042E213CC100D5F6AD /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			);
 			name = Magazine369Travel;
 			packageProductDependencies = (
+				6E75F6032E213CC100D5F6AD /* Kingfisher */,
 			);
 			productName = Magazine369Travel;
 			productReference = 6E75F5CE2E21004C00D5F6AD /* Magazine369Travel.app */;
@@ -113,6 +116,9 @@
 			);
 			mainGroup = 6E75F5C52E21004C00D5F6AD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6E75F5CF2E21004C00D5F6AD /* Products */;
 			projectDirPath = "";
@@ -354,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6E75F6032E213CC100D5F6AD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6E75F5C62E21004C00D5F6AD /* Project object */;
 }
