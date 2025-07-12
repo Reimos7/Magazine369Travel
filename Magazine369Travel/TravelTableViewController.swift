@@ -28,24 +28,10 @@ class TravelTableViewController: UITableViewController {
         let url = URL(string: magazinInfoCell.photo_image)
         
         cell.cardImageView.kf.setImage(with: url)
-        cell.cardImageView.contentMode = .scaleAspectFill
-        setupRadiusDegree(thing: cell.cardImageView, radiusDegree: 14)
-        
         cell.titleLabel.text = magazinInfoCell.title
         cell.subtitleLabel.text = magazinInfoCell.subtitle
         cell.dateLabel.text = formattedMagazineDate(dateString: magazinInfoCell.date)
-        
-        cell.titleLabel.numberOfLines = 2
-        cell.titleLabel.font = .boldSystemFont(ofSize: 22)
-        cell.subtitleLabel.textColor = .lightGray
-        cell.subtitleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
-        cell.dateLabel.textColor = .lightGray
-        cell.dateLabel.font = .systemFont(ofSize: 16)
     
-        cell.titleLabel.textAlignment = .left
-        cell.subtitleLabel.textAlignment = .left
-        cell.dateLabel.textAlignment = .right
-        
         return cell
     }
     
