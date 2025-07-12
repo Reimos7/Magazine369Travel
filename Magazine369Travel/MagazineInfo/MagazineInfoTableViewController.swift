@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class TravelTableViewController: UITableViewController {
+class MagazineInfoTableViewController: UITableViewController {
 
     let magazineInfo = MagazineInfo()
     
@@ -23,7 +23,7 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! MagazineInfoTableViewCell
         let magazinInfoCell = magazineInfo.magazine[indexPath.row]
         let url = URL(string: magazinInfoCell.photo_image)
         
