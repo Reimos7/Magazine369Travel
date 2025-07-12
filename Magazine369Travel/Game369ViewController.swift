@@ -9,11 +9,10 @@ import UIKit
 
 class Game369ViewController: UIViewController {
     
-    
     @IBOutlet var numberTextField: UITextField!
     
     @IBOutlet var resultTextView: UITextView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,15 +38,20 @@ class Game369ViewController: UIViewController {
     }
     
     // 369 계산
-    private func calculate369(text textInt: String) {
-        guard let text = Int(textInt) else {return}
+    private func calculate369(text textString: String) {
+        let clap = "👏"
         
-        for num in 1...text {
-            resultTextView.text += "\(num), "
+        guard let textInt = Int(textString) else {return}
+        
+        for numInt in 1...textInt {
+            let numString = String(numInt)
+            
+            if numString.contains("3") || numString.contains("6") || numString.contains("9") {
+                resultTextView.text += "\(clap), "
+            } else {
+                resultTextView.text += "\(numInt), "
+            }
         }
     }
-    
-    
-    
 }
 
