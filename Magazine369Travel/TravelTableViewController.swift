@@ -31,16 +31,17 @@ class TravelTableViewController: UITableViewController {
         cell.cardImageView.contentMode = .scaleAspectFill
         setupRadiusDegree(thing: cell.cardImageView, radiusDegree: 14)
         
-        
         cell.titleLabel.text = magazinInfoCell.title
         cell.subtitleLabel.text = magazinInfoCell.subtitle
-        cell.dateLabel.text = magazinInfoCell.date
+        cell.dateLabel.text = formattedMagazineDate(dateString: magazinInfoCell.date)
         
         cell.titleLabel.numberOfLines = 2
         cell.titleLabel.font = .boldSystemFont(ofSize: 22)
         cell.subtitleLabel.textColor = .lightGray
-        cell.subtitleLabel.font = .systemFont(ofSize: 16, weight: .semibold)
-        
+        cell.subtitleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
+        cell.dateLabel.textColor = .lightGray
+        cell.dateLabel.font = .systemFont(ofSize: 16)
+    
         cell.titleLabel.textAlignment = .left
         cell.subtitleLabel.textAlignment = .left
         cell.dateLabel.textAlignment = .right
@@ -52,9 +53,19 @@ class TravelTableViewController: UITableViewController {
     private func setupRadiusDegree(thing: UIView, radiusDegree: CGFloat) {
         thing.clipsToBounds = true
         thing.layer.cornerRadius = radiusDegree
-        //thing.layer.borderWidth = 1
-        
     }
     
+    // DateFormatter를 통한 날짜 형식 함수 구현
+    func formattedMagazineDate(dateString: String) -> String {
+       let formatter = DateFormatter()
+       formatter.dateFormat = "yyMMdd"  // 입력 문자열 형식 설정
+       
+       if let date = formatter.date(from: dateString) {
+           formatter.dateFormat = "yy년 MM월 dd일"  // 출력 형식 설정
+           return formatter.string(from: date)  // 변환된 문자열 반환
+       } 
+        return ""  // 변환 실패 시 빈 문자열 반환
+       
+   }
 
 }
