@@ -14,11 +14,16 @@ class Game369ViewController: UIViewController {
     
     @IBOutlet var resultTextView: UITextView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
+    }
+    
+    // 엔터키 입력시 동작
+    @IBAction func enterTextField(_ sender: UITextField) {
+        print(#function)
+        calculate369(text: sender.text!)
     }
     
     private func setupUI() {
@@ -27,13 +32,22 @@ class Game369ViewController: UIViewController {
         
         resultTextView.textColor = .lightGray
         resultTextView.font = .systemFont(ofSize: 20)
+        // UITextView사용자 편집 방지
+        resultTextView.isEditable = false
         
         resultTextView.text = ""
-        for i in 1...100 {
-            resultTextView.text += "\(i), "
-            
-        }
-        
     }
-
+    
+    // 369 계산
+    private func calculate369(text textInt: String) {
+        guard let text = Int(textInt) else {return}
+        
+        for num in 1...text {
+            resultTextView.text += "\(num), "
+        }
+    }
+    
+    
+    
 }
+
