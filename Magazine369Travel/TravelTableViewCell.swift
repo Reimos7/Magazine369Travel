@@ -10,9 +10,9 @@ import UIKit
 class TravelTableViewCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var subTitleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     
-    @IBOutlet var starImageLabel: UILabel!
+    @IBOutlet var starLabel: UILabel!
     @IBOutlet var gradeSaveLabel: UILabel!
     
     @IBOutlet var likeButton: UIButton!
