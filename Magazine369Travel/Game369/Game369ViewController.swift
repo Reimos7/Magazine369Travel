@@ -19,6 +19,8 @@ class Game369ViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        // 숫자 키패드
+        numberTextField.keyboardType = .numberPad
     }
     
     // 엔터키 입력시 동작
@@ -97,6 +99,11 @@ class Game369ViewController: UIViewController {
         
        
         //resultTextView.text = result
+    }
+    
+    // 탭 제스쳐로 키보드 내리기
+    @IBAction func keyboardDismiss(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
