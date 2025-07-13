@@ -32,41 +32,9 @@ class TravelTableViewController: UITableViewController {
         // 광고 셀
         if let ad = travelInfoCell.ad, ad {
             let cell = tableView.dequeueReusableCell(withIdentifier: "travelAdCell", for: indexPath) as! TravelAdTableViewCell
-            let adBackgroundColor: [UIColor] = [
-                .systemPink.withAlphaComponent(0.3),
-                .systemGreen.withAlphaComponent(0.3),
-                .systemBlue.withAlphaComponent(0.3)
-            ]
-            cell.adTitleBackgroundView.clipsToBounds = true
-            cell.adTitleBackgroundView.layer.cornerRadius = 14
             
-            //print(adBackgroundColor.count)
-            //print(indexPath.row, "인덱스 로우")
-            cell.adTitleLabel.text = travelInfoCell.title
-            cell.adTitleLabel.textAlignment = .center
-            cell.adTitleLabel.font = .boldSystemFont(ofSize: 18)
-            cell.adTitleLabel.numberOfLines = 2
-//            indexPath.row = 0 % 3 == [0]  1 % 3 == [1] 2 % 3 == [2]
-            // 4, 8, 13
-            //cell.backgroundColor = adBackgroundColor[indexPath.row % adBackgroundColor.count]
-            //adCellBackgroundCount += 1
-            // var titleBackgroundColor = cell.adTitleBackgroundView.backgroundColor
-            
-            if indexPath.row == 4 {
-                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[0]
-            } else if indexPath.row == 8 {
-                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[1]
-            } else if indexPath.row == 13 {
-                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[2]
-            }
-            
-            cell.adBoxView.backgroundColor = .white
-            cell.adBoxView.clipsToBounds = true
-            cell.adBoxView.layer.cornerRadius = 10
-            
-            cell.adLabel.text = "AD"
-            cell.adLabel.textAlignment = .center
-            
+            // indexPath.row 보내주기
+            cell.configure(title: travelInfoCell.title, indexPath: indexPath.row)
             
             return cell
             

@@ -15,6 +15,47 @@ class TravelAdTableViewCell: UITableViewCell {
     @IBOutlet var adLabel: UILabel!
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         selectionStyle = .none
+        
+        adTitleBackgroundView.clipsToBounds = true
+        adTitleBackgroundView.layer.cornerRadius = 14
+        
+        adTitleLabel.textAlignment = .center
+        adTitleLabel.font = .boldSystemFont(ofSize: 18)
+        adTitleLabel.numberOfLines = 2
+        
+        adBoxView.backgroundColor = .white
+        adBoxView.clipsToBounds = true
+        adBoxView.layer.cornerRadius = 10
+        
+        adLabel.text = "AD"
+        adLabel.textAlignment = .center
+        
+    }
+    
+    // indexPath.row를 받아오기
+    func configure(title: String, indexPath: Int) {
+        adTitleLabel.text = title
+        
+        // indexPath.row = 0 % 3 == [0]  1 % 3 == [1] 2 % 3 == [2]
+        // 4, 8, 13
+        //cell.backgroundColor = adBackgroundColor[indexPath.row % adBackgroundColor.count]
+        //adCellBackgroundCount += 1
+        // var titleBackgroundColor = cell.adTitleBackgroundView.backgroundColor
+        
+        let adBackgroundColor: [UIColor] = [
+            .systemPink.withAlphaComponent(0.3),
+            .systemGreen.withAlphaComponent(0.3),
+            .systemBlue.withAlphaComponent(0.3)
+        ]
+        
+        if indexPath == 4 {
+            adTitleBackgroundView.backgroundColor = adBackgroundColor[0]
+        } else if indexPath == 8 {
+            adTitleBackgroundView.backgroundColor = adBackgroundColor[1]
+        } else if indexPath == 13 {
+            adTitleBackgroundView.backgroundColor = adBackgroundColor[2]
+        }
     }
 }
