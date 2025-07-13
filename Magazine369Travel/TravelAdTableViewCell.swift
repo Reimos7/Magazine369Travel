@@ -11,6 +11,7 @@ class TravelAdTableViewCell: UITableViewCell {
 
     @IBOutlet var adTitleLabel: UILabel!
     @IBOutlet var adBoxView: UIView!
+    @IBOutlet var adTitleBackgroundView: UIView!
     @IBOutlet var adLabel: UILabel!
     
     

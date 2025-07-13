@@ -11,6 +11,7 @@ import Kingfisher
 class TravelTableViewController: UITableViewController {
     
     let travelInfo = TravelInfo()
+    //var adCellBackgroundCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,81 +25,133 @@ class TravelTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
         let travelInfoCell = travelInfo.travel[indexPath.row]
         
+        // 광고 셀 유무에 따라
         
-        guard let description = travelInfoCell.description else {
-            cell.descriptionLabel.isHidden = true
+        // 광고 셀
+        if let ad = travelInfoCell.ad, ad {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "travelAdCell", for: indexPath) as! TravelAdTableViewCell
+            let adBackgroundColor: [UIColor] = [
+                .systemPink.withAlphaComponent(0.3),
+                .systemGreen.withAlphaComponent(0.3),
+                .systemBlue.withAlphaComponent(0.3)
+            ]
+            cell.adTitleBackgroundView.clipsToBounds = true
+            cell.adTitleBackgroundView.layer.cornerRadius = 14
+            
+            //print(adBackgroundColor.count)
+            //print(indexPath.row, "인덱스 로우")
+            cell.adTitleLabel.text = travelInfoCell.title
+            cell.adTitleLabel.textAlignment = .center
+            cell.adTitleLabel.font = .boldSystemFont(ofSize: 18)
+            cell.adTitleLabel.numberOfLines = 2
+//            indexPath.row = 0 % 3 == [0]  1 % 3 == [1] 2 % 3 == [2]
+            // 4, 8, 13
+            //cell.backgroundColor = adBackgroundColor[indexPath.row % adBackgroundColor.count]
+            //adCellBackgroundCount += 1
+            // var titleBackgroundColor = cell.adTitleBackgroundView.backgroundColor
+            
+            if indexPath.row == 4 {
+                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[0]
+            } else if indexPath.row == 8 {
+                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[1]
+            } else if indexPath.row == 13 {
+                cell.adTitleBackgroundView.backgroundColor = adBackgroundColor[2]
+            }
+            
+            cell.adBoxView.backgroundColor = .white
+            cell.adBoxView.clipsToBounds = true
+            cell.adBoxView.layer.cornerRadius = 10
+            
+            cell.adLabel.text = "AD"
+            cell.adLabel.textAlignment = .center
+            
+            
+            return cell
+            
+        } else {
+            // 광고셀이 아닌 여행 셀
+            let cell = tableView.dequeueReusableCell(withIdentifier: "travelCell", for: indexPath) as! TravelTableViewCell
+            
+            guard let description = travelInfoCell.description else {
+                cell.descriptionLabel.isHidden = true
+                return cell
+            }
+            
+            guard let imageUrl = travelInfoCell.travel_image else {
+                print("gg")
+                cell.travelImage.image = UIImage(systemName: "questionmark")
+                cell.travelImage.tintColor = .black
+                cell.travelImage.backgroundColor = .darkGray
+                cell.travelImage.isHidden = true
+                return cell
+            }
+            guard let url = URL(string: imageUrl) else {
+                cell.travelImage.image = UIImage(systemName: "questionmark")
+                cell.travelImage.tintColor = .black
+                cell.travelImage.backgroundColor = .darkGray
+                return cell
+            }
+            
+            guard let like = travelInfoCell.like else {
+                cell.likeButton.isHidden = true
+                return cell
+            }
+            
+            guard let grade = travelInfoCell.grade else {
+                cell.starLabel.isHidden = true
+                return cell
+            }
+            
+            guard let save = travelInfoCell.save else {
+                cell.gradeSaveLabel.isHidden = true
+                return cell
+            }
+            
+            cell.titleLabel.text = travelInfoCell.title
+            cell.titleLabel.textAlignment = .left
+            cell.titleLabel.font = .boldSystemFont(ofSize: 17)
+            cell.titleLabel.numberOfLines = 2
+            
+            cell.descriptionLabel.isHidden = false
+            cell.descriptionLabel.text = description
+            cell.descriptionLabel.textAlignment = .left
+            cell.descriptionLabel.textColor = .lightGray
+            cell.descriptionLabel.font = .systemFont(ofSize: 16)
+            cell.descriptionLabel.numberOfLines = 2
+            
+            cell.travelImage.isHidden = false
+            cell.travelImage.kf.setImage(with: url)
+            cell.travelImage.contentMode = .scaleAspectFill
+            cell.travelImage.clipsToBounds = true
+            cell.travelImage.layer.cornerRadius = 10
+            
+            let likeBtn = !like ? "heart" : "heart.fill"
+            cell.likeButton.isHidden = false
+            cell.likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
+            cell.likeButton.tintColor = .white
+            
+            // 별 넣기
+            setStarUI(label: cell.starLabel, grade: grade)
+            
+            cell.gradeSaveLabel.isEnabled = false
+            cell.gradeSaveLabel.text = "(\(grade)) · 저장 \(save)"
+            cell.gradeSaveLabel.font = .systemFont(ofSize: 14)
+            cell.gradeSaveLabel.textColor = .lightGray
+            
             return cell
         }
-        
-        guard let imageUrl = travelInfoCell.travel_image else {
-            print("gg")
-            cell.travelImage.image = UIImage(systemName: "questionmark")
-            cell.travelImage.tintColor = .black
-            cell.travelImage.backgroundColor = .darkGray
-            cell.travelImage.isHidden = true
-            return cell
-        }
-        guard let url = URL(string: imageUrl) else {
-            cell.travelImage.image = UIImage(systemName: "questionmark")
-            cell.travelImage.tintColor = .black
-            cell.travelImage.backgroundColor = .darkGray
-            return cell
-        }
-        
-        guard let like = travelInfoCell.like else {
-            cell.likeButton.isHidden = true
-            return cell
-        }
-        
-        guard let grade = travelInfoCell.grade else {
-            cell.starLabel.isHidden = true
-            return cell
-        }
-        
-        guard let save = travelInfoCell.save else {
-            cell.gradeSaveLabel.isHidden = true
-            return cell
-        }
-        
-        cell.titleLabel.text = travelInfoCell.title
-        cell.titleLabel.textAlignment = .left
-        cell.titleLabel.font = .boldSystemFont(ofSize: 17)
-        cell.titleLabel.numberOfLines = 2
-        
-        cell.descriptionLabel.isHidden = false
-        cell.descriptionLabel.text = description
-        cell.descriptionLabel.textAlignment = .left
-        cell.descriptionLabel.textColor = .lightGray
-        cell.descriptionLabel.font = .systemFont(ofSize: 16)
-        cell.descriptionLabel.numberOfLines = 2
-        
-        cell.travelImage.isHidden = false
-        cell.travelImage.kf.setImage(with: url)
-        cell.travelImage.contentMode = .scaleAspectFill
-        cell.travelImage.clipsToBounds = true
-        cell.travelImage.layer.cornerRadius = 10
-        
-        let likeBtn = !like ? "heart" : "heart.fill"
-        cell.likeButton.isHidden = false
-        cell.likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
-        cell.likeButton.tintColor = .white
-        
-        // 별 넣기
-        setStarUI(label: cell.starLabel, grade: grade)
-        
-        cell.gradeSaveLabel.isEnabled = false
-        cell.gradeSaveLabel.text = "(\(grade)) · 저장 \(save)"
-        cell.gradeSaveLabel.font = .systemFont(ofSize: 14)
-        cell.gradeSaveLabel.textColor = .lightGray
-        
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // 광고 셀이면 높이 100
+        if let travelInfoCellAd = travelInfo.travel[indexPath.row].ad, travelInfoCellAd {
+            return 100
+        }
+        // 일반 셀이면 200
         return 200
+        
     }
     
     
