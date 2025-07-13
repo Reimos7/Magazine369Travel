@@ -114,13 +114,13 @@ class TravelTableViewController: UITableViewController {
             
             cell.titleLabel.text = travelInfoCell.title
             cell.titleLabel.textAlignment = .left
-            cell.titleLabel.font = .boldSystemFont(ofSize: 17)
+            cell.titleLabel.font = .boldSystemFont(ofSize: 20)
             cell.titleLabel.numberOfLines = 2
             
             cell.descriptionLabel.isHidden = false
             cell.descriptionLabel.text = description
             cell.descriptionLabel.textAlignment = .left
-            cell.descriptionLabel.textColor = .lightGray
+            cell.descriptionLabel.textColor = .darkGray
             cell.descriptionLabel.font = .systemFont(ofSize: 16)
             cell.descriptionLabel.numberOfLines = 2
             

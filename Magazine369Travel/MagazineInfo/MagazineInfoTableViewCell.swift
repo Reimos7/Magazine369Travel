@@ -25,11 +25,11 @@ class MagazineInfoTableViewCell: UITableViewCell {
         titleLabel.font = .boldSystemFont(ofSize: 22)
         titleLabel.textAlignment = .left
         
-        subtitleLabel.textColor = .lightGray
+        subtitleLabel.textColor = .darkGray
         subtitleLabel.font = .systemFont(ofSize: 17, weight: .semibold)
         subtitleLabel.textAlignment = .left
         
-        dateLabel.textColor = .lightGray
+        dateLabel.textColor = .darkGray
         dateLabel.font = .systemFont(ofSize: 16)
         dateLabel.textAlignment = .right
     }
