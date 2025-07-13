@@ -14,5 +14,7 @@ class TravelAdTableViewCell: UITableViewCell {
     @IBOutlet var adTitleBackgroundView: UIView!
     @IBOutlet var adLabel: UILabel!
     
-    
+    override func awakeFromNib() {
+        selectionStyle = .none
+    }
 }

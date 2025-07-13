@@ -16,6 +16,7 @@ class MagazineInfoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         
         cardImageView.contentMode = .scaleAspectFill
         cardImageView.clipsToBounds = true

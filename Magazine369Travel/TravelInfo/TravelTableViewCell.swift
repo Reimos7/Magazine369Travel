@@ -17,4 +17,10 @@ class TravelTableViewCell: UITableViewCell {
     
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var travelImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        selectionStyle = .none
+    }
 }
