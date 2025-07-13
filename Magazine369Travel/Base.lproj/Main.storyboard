@@ -272,6 +272,57 @@
                                     <outlet property="travelImage" destination="sZW-gm-vGb" id="nsL-iV-M4P"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="travelAdCell" rowHeight="101" id="0Yp-sd-5F8" customClass="TravelAdTableViewCell" customModule="Magazine369Travel" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="229" width="393" height="101"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Yp-sd-5F8" id="nZe-cV-MPO">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF1-CN-GHJ">
+                                            <rect key="frame" x="50" y="20" width="293" height="61"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lx9-dv-wGN">
+                                            <rect key="frame" x="341" y="2" width="50" height="30"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sr-y3-Clm">
+                                                    <rect key="frame" x="5" y="5" width="40" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="JoX-2X-oH5"/>
+                                                        <constraint firstAttribute="width" constant="40" id="fLV-uK-lnI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="0Sr-y3-Clm" firstAttribute="centerX" secondItem="lx9-dv-wGN" secondAttribute="centerX" id="VPm-OG-D7K"/>
+                                                <constraint firstAttribute="height" constant="30" id="kcC-JL-l14"/>
+                                                <constraint firstItem="0Sr-y3-Clm" firstAttribute="centerY" secondItem="lx9-dv-wGN" secondAttribute="centerY" id="t1v-01-yFB"/>
+                                                <constraint firstAttribute="width" constant="50" id="wSg-Od-MrP"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="EF1-CN-GHJ" firstAttribute="leading" secondItem="nZe-cV-MPO" secondAttribute="leading" constant="50" id="44h-0o-UhN"/>
+                                        <constraint firstItem="EF1-CN-GHJ" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" constant="20" id="Drj-aF-D68"/>
+                                        <constraint firstAttribute="trailing" secondItem="EF1-CN-GHJ" secondAttribute="trailing" constant="50" id="MiP-AC-57K"/>
+                                        <constraint firstAttribute="bottom" secondItem="EF1-CN-GHJ" secondAttribute="bottom" constant="20" id="dMU-9l-zUN"/>
+                                        <constraint firstItem="lx9-dv-wGN" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" constant="2" id="euQ-CG-y9t"/>
+                                        <constraint firstAttribute="trailing" secondItem="lx9-dv-wGN" secondAttribute="trailing" constant="2" id="wZw-W1-SXl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="adBoxView" destination="lx9-dv-wGN" id="bcZ-Z8-AVS"/>
+                                    <outlet property="adLabel" destination="0Sr-y3-Clm" id="epK-ke-Qyx"/>
+                                    <outlet property="adTitleLabel" destination="EF1-CN-GHJ" id="01J-Di-Yh4"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="zmk-Z6-hBy" id="dzW-KL-JdG"/>
