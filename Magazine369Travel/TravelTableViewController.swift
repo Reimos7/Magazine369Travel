@@ -10,7 +10,7 @@ import Kingfisher
 
 class TravelTableViewController: UITableViewController {
     
-    let travelInfo = TravelInfo()
+    var travelInfo = TravelInfo()
     //var adCellBackgroundCount = 0
     
     override func viewDidLoad() {
@@ -131,6 +131,8 @@ class TravelTableViewController: UITableViewController {
             cell.likeButton.isHidden = false
             cell.likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
             cell.likeButton.tintColor = .white
+            // 버튼 클릭 이벤트
+            cell.likeButton.addTarget(self, action: #selector(tappedLikeButton), for: .touchUpInside)
             
             // 별 넣기
             setStarUI(label: cell.starLabel, grade: grade)
@@ -139,7 +141,7 @@ class TravelTableViewController: UITableViewController {
             cell.gradeSaveLabel.text = "(\(grade)) · 저장 \(save)"
             cell.gradeSaveLabel.font = .systemFont(ofSize: 14)
             cell.gradeSaveLabel.textColor = .lightGray
-            
+            //print("원래 값: ",travelInfoCell.like)
             return cell
         }
     }
@@ -152,6 +154,12 @@ class TravelTableViewController: UITableViewController {
         // 일반 셀이면 200
         return 200
         
+    }
+    
+    // 좋아요 버튼 상태 변경
+    @objc func tappedLikeButton(_ sender: UIButton) {
+        travelInfo.travel[sender.tag].like?.toggle()
+        tableView.reloadData()
     }
     
     
