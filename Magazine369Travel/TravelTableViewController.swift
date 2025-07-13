@@ -109,6 +109,9 @@ class TravelTableViewController: UITableViewController {
                 return cell
             }
             
+            // 3자리 마다 , 찍기
+            let formattedSave = formatNumber(save)
+            
             cell.titleLabel.text = travelInfoCell.title
             cell.titleLabel.textAlignment = .left
             cell.titleLabel.font = .boldSystemFont(ofSize: 17)
@@ -138,7 +141,7 @@ class TravelTableViewController: UITableViewController {
             setStarUI(label: cell.starLabel, grade: grade)
             
             cell.gradeSaveLabel.isEnabled = false
-            cell.gradeSaveLabel.text = "(\(grade)) · 저장 \(save)"
+            cell.gradeSaveLabel.text = "(\(grade)) · 저장 \(formattedSave)"
             cell.gradeSaveLabel.font = .systemFont(ofSize: 14)
             cell.gradeSaveLabel.textColor = .lightGray
             //print("원래 값: ",travelInfoCell.like)
@@ -201,5 +204,14 @@ class TravelTableViewController: UITableViewController {
         // SFSymbol을 label에 넣음
         label.attributedText = result
         label.textColor = .yellow
+    }
+    
+    // 숫자 3자리마다 , 찍기
+    private func formatNumber(_ price: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        
+        let result = formatter.string(from: NSNumber(integerLiteral: price)) ?? ""
+        return result
     }
 }
