@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dcf-pr-zUU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L5J-qk-hv9">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -140,19 +140,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQF-1p-UAb">
+                                <rect key="frame" x="20" y="500" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gnS-YI-yUD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yDQ-sK-glc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yDQ-sK-glc" firstAttribute="trailing" secondItem="gQF-1p-UAb" secondAttribute="trailing" constant="20" id="05M-Cf-38B"/>
                             <constraint firstItem="AV6-xr-xDG" firstAttribute="leading" secondItem="yDQ-sK-glc" secondAttribute="leading" constant="20" id="2uv-uS-Vg9"/>
                             <constraint firstItem="4yL-Fc-5tT" firstAttribute="leading" secondItem="yDQ-sK-glc" secondAttribute="leading" constant="20" id="HFH-fd-IQI"/>
+                            <constraint firstItem="gQF-1p-UAb" firstAttribute="leading" secondItem="yDQ-sK-glc" secondAttribute="leading" constant="20" id="NLN-gX-6Am"/>
                             <constraint firstItem="4yL-Fc-5tT" firstAttribute="top" secondItem="yDQ-sK-glc" secondAttribute="top" constant="10" id="YMV-Pe-A9s"/>
                             <constraint firstItem="AV6-xr-xDG" firstAttribute="top" secondItem="4yL-Fc-5tT" secondAttribute="bottom" constant="24" id="h15-aQ-Ly1"/>
                             <constraint firstItem="yDQ-sK-glc" firstAttribute="trailing" secondItem="AV6-xr-xDG" secondAttribute="trailing" constant="20" id="hPo-Sd-bny"/>
                             <constraint firstItem="yDQ-sK-glc" firstAttribute="trailing" secondItem="4yL-Fc-5tT" secondAttribute="trailing" constant="20" id="ksO-FY-4KX"/>
+                            <constraint firstItem="gQF-1p-UAb" firstAttribute="top" secondItem="AV6-xr-xDG" secondAttribute="bottom" constant="4" id="tGE-iz-TuM"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clapCountLabel" destination="gQF-1p-UAb" id="gep-Jj-q3A"/>
                         <outlet property="numberTextField" destination="4yL-Fc-5tT" id="NV6-PY-UnY"/>
                         <outlet property="resultTextView" destination="AV6-xr-xDG" id="Nbm-km-icc"/>
                     </connections>
