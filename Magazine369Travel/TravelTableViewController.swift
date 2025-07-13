@@ -134,6 +134,8 @@ class TravelTableViewController: UITableViewController {
             cell.likeButton.isHidden = false
             cell.likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
             cell.likeButton.tintColor = .white
+            // 버튼 클릭을 위한 태그 설정
+            cell.likeButton.tag = indexPath.row
             // 버튼 클릭 이벤트
             cell.likeButton.addTarget(self, action: #selector(tappedLikeButton), for: .touchUpInside)
             
@@ -161,7 +163,11 @@ class TravelTableViewController: UITableViewController {
     
     // 좋아요 버튼 상태 변경
     @objc func tappedLikeButton(_ sender: UIButton) {
-        travelInfo.travel[sender.tag].like?.toggle()
+        //print("변경 전:", travelInfo.travel[sender.tag].like)
+        var travelInfoTag = travelInfo.travel[sender.tag]
+        travelInfoTag.like?.toggle()
+        travelInfo.travel[sender.tag] = travelInfoTag
+        //print("변경 후:", travelInfo.travel[sender.tag].like)
         tableView.reloadData()
     }
     
