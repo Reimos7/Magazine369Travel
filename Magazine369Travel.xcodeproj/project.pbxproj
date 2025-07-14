@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1054C62E24E974006A5E9F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 6E1054C52E24E974006A5E9F /* Toast */; };
 		6E75F5E72E2100DB00D5F6AD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6E75F5E62E2100DB00D5F6AD /* .gitignore */; };
 		6E75F6042E213CC100D5F6AD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6E75F6032E213CC100D5F6AD /* Kingfisher */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1054C62E24E974006A5E9F /* Toast in Frameworks */,
 				6E75F6042E213CC100D5F6AD /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +89,7 @@
 			name = Magazine369Travel;
 			packageProductDependencies = (
 				6E75F6032E213CC100D5F6AD /* Kingfisher */,
+				6E1054C52E24E974006A5E9F /* Toast */,
 			);
 			productName = Magazine369Travel;
 			productReference = 6E75F5CE2E21004C00D5F6AD /* Magazine369Travel.app */;
@@ -118,6 +121,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				6E1054C42E24E974006A5E9F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6E75F5CF2E21004C00D5F6AD /* Products */;
@@ -362,6 +366,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6E1054C42E24E974006A5E9F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 		6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -373,6 +385,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6E1054C52E24E974006A5E9F /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E1054C42E24E974006A5E9F /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		6E75F6032E213CC100D5F6AD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6E75F6022E213CC100D5F6AD /* XCRemoteSwiftPackageReference "Kingfisher" */;
