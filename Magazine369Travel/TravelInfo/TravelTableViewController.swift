@@ -18,11 +18,11 @@ class TravelTableViewController: UITableViewController {
         
         self.navigationItem.title = "도시 상세 정보"
         
-        let adXib = UINib(nibName: "TravelAdXIBTableViewCell", bundle: nil)
-        tableView.register(adXib, forCellReuseIdentifier: "TravelAdXIBTableViewCell")
+        let adXib = UINib(nibName: TravelIdentifier.Identifier.ad, bundle: nil)
+        tableView.register(adXib, forCellReuseIdentifier: TravelIdentifier.Identifier.ad)
         
-        let travelXib = UINib(nibName: "TravelXIBTableViewCell", bundle: nil)
-        tableView.register(travelXib, forCellReuseIdentifier: "TravelXIBTableViewCell")
+        let travelXib = UINib(nibName: TravelIdentifier.Identifier.travel, bundle: nil)
+        tableView.register(travelXib, forCellReuseIdentifier: TravelIdentifier.Identifier.travel)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +36,7 @@ class TravelTableViewController: UITableViewController {
         
         // 광고 셀
         if let ad = travelInfoCell.ad, ad {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TravelAdXIBTableViewCell", for: indexPath) as! TravelAdXIBTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TravelIdentifier.Identifier.ad, for: indexPath) as! TravelAdXIBTableViewCell
             
             // indexPath.row 보내주기
             cell.configure(title: travelInfoCell.title, indexPath: indexPath.row)
@@ -44,7 +44,7 @@ class TravelTableViewController: UITableViewController {
             return cell
         }
         // 광고셀이 아닌 여행 셀
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TravelXIBTableViewCell", for: indexPath) as! TravelXIBTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TravelIdentifier.Identifier.travel, for: indexPath) as! TravelXIBTableViewCell
         cell.configure(travelInfoCell: travelInfoCell, indexPath: indexPath.row, title: travelInfoCell.title)
         
         // 버튼 클릭 이벤트
