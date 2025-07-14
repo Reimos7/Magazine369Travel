@@ -30,7 +30,7 @@ class MagazineInfoTableViewController: UITableViewController {
         cell.cardImageView.kf.setImage(with: url)
         cell.titleLabel.text = magazinInfoCell.title
         cell.subtitleLabel.text = magazinInfoCell.subtitle
-        cell.dateLabel.text = formattedMagazineDate(dateString: magazinInfoCell.date)
+        cell.dateLabel.text = magazinInfoCell.date.formattedMagazineDate()
     
         return cell
     }
@@ -40,18 +40,5 @@ class MagazineInfoTableViewController: UITableViewController {
         thing.clipsToBounds = true
         thing.layer.cornerRadius = radiusDegree
     }
-    
-    // DateFormatter를 통한 날짜 형식 함수 구현
-    func formattedMagazineDate(dateString: String) -> String {
-       let formatter = DateFormatter()
-       formatter.dateFormat = "yyMMdd"  // 입력 문자열 형식 설정
-       
-       if let date = formatter.date(from: dateString) {
-           formatter.dateFormat = "yy년 MM월 dd일"  // 출력 형식 설정
-           return formatter.string(from: date)  // 변환된 문자열 반환
-       } 
-        return ""  // 변환 실패 시 빈 문자열 반환
-       
-   }
 
 }

@@ -71,7 +71,8 @@ class TravelXIBTableViewCell: UITableViewCell {
         
         setStarUI(label: starLabel, grade: grade)
         
-        let formattedSave = formatNumber(save)
+        // decimal
+        let formattedSave = save.formatDecimal()
         
         gradeSaveLabel.text = "(\(grade)) · 저장 \(formattedSave)"
         
@@ -123,14 +124,4 @@ class TravelXIBTableViewCell: UITableViewCell {
         label.attributedText = result
         label.textColor = .yellow
     }
-    
-    // 숫자 3자리마다 , 찍기
-    private func formatNumber(_ price: Int) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        
-        let result = formatter.string(from: NSNumber(integerLiteral: price)) ?? ""
-        return result
-    }
-    
 }
