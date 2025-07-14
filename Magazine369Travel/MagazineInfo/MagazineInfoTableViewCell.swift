@@ -22,7 +22,7 @@ class MagazineInfoTableViewCell: UITableViewCell {
         cardImageView.clipsToBounds = true
         cardImageView.layer.cornerRadius = 14
         
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 0
         titleLabel.font = .boldSystemFont(ofSize: 22)
         titleLabel.textAlignment = .left
         
