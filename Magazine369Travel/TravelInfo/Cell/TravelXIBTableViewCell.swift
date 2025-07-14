@@ -8,7 +8,6 @@
 import UIKit
 
 class TravelXIBTableViewCell: UITableViewCell {
-
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var starLabel: UILabel!
@@ -53,53 +52,36 @@ class TravelXIBTableViewCell: UITableViewCell {
         
         titleLabel.text = travelInfoCell.title
         
-        if let description = travelInfoCell.description {
-            descriptionLabel.isHidden = false
-            descriptionLabel.text = description
-        } else {
+        guard let description = travelInfoCell.description,
+              let like = travelInfoCell.like,
+              let grade = travelInfoCell.grade,
+              let save = travelInfoCell.save else {
             descriptionLabel.isHidden = true
-        }
-        
-        if let imageUrl = travelInfoCell.travel_image,
-           let url = URL(string: imageUrl) {
-            travelImage.isHidden = false
-            travelImage.kf.setImage(with: url)
-            
-        } else {
-            travelImage.image = UIImage(systemName: "questionmark")
-            travelImage.tintColor = .black
-            travelImage.backgroundColor = .darkGray
-            travelImage.isHidden = true
-        }
-        
-        if let like = travelInfoCell.like {
-            let likeBtn = !like ? "heart" : "heart.fill"
-            likeButton.isHidden = false
-            likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
-            // 버튼 클릭을 위한 태그 설정
-            likeButton.tag = indexPath
-           
-        } else {
             likeButton.isHidden = true
+            gradeSaveLabel.isHidden = true
+            return
         }
         
-        guard let grade = travelInfoCell.grade else {
-            return starLabel.isHidden = true
-        }
+        descriptionLabel.text = description
         
-        starLabel.isHidden = false
-        // 별 넣기
+        let likeBtn = !like ? "heart" : "heart.fill"
+        likeButton.setImage(UIImage(systemName: likeBtn), for: .normal)
+        // 버튼 클릭을 위한 태그 설정
+        likeButton.tag = indexPath
+        
         setStarUI(label: starLabel, grade: grade)
         
-        if let save = travelInfoCell.save {
-            gradeSaveLabel.isHidden = false
-            // 3자리 마다 , 찍기
-            let formattedSave = formatNumber(save)
-            gradeSaveLabel.isEnabled = false
-            gradeSaveLabel.text = "(\(grade)) · 저장 \(formattedSave)"
-        } else {
-            gradeSaveLabel.isHidden = true
+        let formattedSave = formatNumber(save)
+        
+        gradeSaveLabel.text = "(\(grade)) · 저장 \(formattedSave)"
+        
+        guard let imageUrl = travelInfoCell.travel_image,
+              let url = URL(string: imageUrl) else {
+            travelImage.image = UIImage(systemName: "questionmark")
+            return
         }
+        
+        travelImage.kf.setImage(with: url)
         
     }
     // MARK: - SFSymbol 별 이미지를 grade에 맞춰 별 모양대로 반올림 계산
