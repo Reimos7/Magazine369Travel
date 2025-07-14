@@ -326,7 +326,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmI-wK-dQa">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+                                            <rect key="frame" x="2" y="2" width="389" height="97"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EF1-CN-GHJ">
@@ -361,13 +361,13 @@
                                     <constraints>
                                         <constraint firstItem="EF1-CN-GHJ" firstAttribute="leading" secondItem="nZe-cV-MPO" secondAttribute="leading" constant="50" id="44h-0o-UhN"/>
                                         <constraint firstItem="EF1-CN-GHJ" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" constant="20" id="Drj-aF-D68"/>
-                                        <constraint firstAttribute="bottom" secondItem="UmI-wK-dQa" secondAttribute="bottom" id="E1a-C1-W1E"/>
+                                        <constraint firstAttribute="bottom" secondItem="UmI-wK-dQa" secondAttribute="bottom" constant="2" id="E1a-C1-W1E"/>
                                         <constraint firstAttribute="trailing" secondItem="EF1-CN-GHJ" secondAttribute="trailing" constant="50" id="MiP-AC-57K"/>
                                         <constraint firstAttribute="bottom" secondItem="EF1-CN-GHJ" secondAttribute="bottom" constant="20" id="dMU-9l-zUN"/>
                                         <constraint firstItem="lx9-dv-wGN" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" constant="4" id="euQ-CG-y9t"/>
-                                        <constraint firstItem="UmI-wK-dQa" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" id="fV3-L3-5Ah"/>
-                                        <constraint firstItem="UmI-wK-dQa" firstAttribute="leading" secondItem="nZe-cV-MPO" secondAttribute="leading" id="tHb-Cr-ywp"/>
-                                        <constraint firstAttribute="trailing" secondItem="UmI-wK-dQa" secondAttribute="trailing" id="vtA-Um-rCG"/>
+                                        <constraint firstItem="UmI-wK-dQa" firstAttribute="top" secondItem="nZe-cV-MPO" secondAttribute="top" constant="2" id="fV3-L3-5Ah"/>
+                                        <constraint firstItem="UmI-wK-dQa" firstAttribute="leading" secondItem="nZe-cV-MPO" secondAttribute="leading" constant="2" id="tHb-Cr-ywp"/>
+                                        <constraint firstAttribute="trailing" secondItem="UmI-wK-dQa" secondAttribute="trailing" constant="2" id="vtA-Um-rCG"/>
                                         <constraint firstAttribute="trailing" secondItem="lx9-dv-wGN" secondAttribute="trailing" constant="4" id="wZw-W1-SXl"/>
                                     </constraints>
                                 </tableViewCellContentView>

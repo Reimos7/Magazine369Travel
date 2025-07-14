@@ -1,21 +1,36 @@
 //
-//  TravelAdTableViewCell.swift
+//  TravelXIBTableViewCell.swift
 //  Magazine369Travel
 //
-//  Created by Reimos on 7/13/25.
+//  Created by Reimos on 7/14/25.
 //
+
+/*
+ static
+ final
+ private 접근제어자
+ cell 을 enum으로 관리하기
+ */
 
 import UIKit
 
-class TravelAdTableViewCell: UITableViewCell {
+class TravelAdXIBTableViewCell: UITableViewCell {
 
-    @IBOutlet var adTitleLabel: UILabel!
-    @IBOutlet var adBoxView: UIView!
     @IBOutlet var adTitleBackgroundView: UIView!
+    
+    @IBOutlet var adTitleLabel: UILabel!
+    
+    @IBOutlet var adBoxView: UIView!
+    
     @IBOutlet var adLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setupUI()
+    }
+    
+    func setupUI() {
         selectionStyle = .none
         
         adTitleBackgroundView.clipsToBounds = true
@@ -31,19 +46,11 @@ class TravelAdTableViewCell: UITableViewCell {
         
         adLabel.text = "AD"
         adLabel.textAlignment = .center
-        
     }
     
-    // indexPath.row를 받아오기
+    
     func configure(title: String, indexPath: Int) {
         adTitleLabel.text = title
-        
-        // indexPath.row = 0 % 3 == [0]  1 % 3 == [1] 2 % 3 == [2]
-        // 4, 8, 13
-        //cell.backgroundColor = adBackgroundColor[indexPath.row % adBackgroundColor.count]
-        //adCellBackgroundCount += 1
-        // var titleBackgroundColor = cell.adTitleBackgroundView.backgroundColor
-        
         let adBackgroundColor: [UIColor] = [
             .systemPink.withAlphaComponent(0.3),
             .systemGreen.withAlphaComponent(0.3),
@@ -58,4 +65,8 @@ class TravelAdTableViewCell: UITableViewCell {
             adTitleBackgroundView.backgroundColor = adBackgroundColor[2]
         }
     }
+    
+    
+    
+    
 }

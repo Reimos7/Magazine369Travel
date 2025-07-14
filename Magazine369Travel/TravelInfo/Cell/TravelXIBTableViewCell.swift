@@ -1,32 +1,32 @@
 //
-//  TravelTableViewCell.swift
+//  TravelAdXIBTableViewCell.swift
 //  Magazine369Travel
 //
-//  Created by Reimos on 7/12/25.
+//  Created by Reimos on 7/14/25.
 //
 
 import UIKit
 
-class TravelTableViewCell: UITableViewCell {
-    
+class TravelXIBTableViewCell: UITableViewCell {
+
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
-    
     @IBOutlet var starLabel: UILabel!
     @IBOutlet var gradeSaveLabel: UILabel!
     
     @IBOutlet var likeButton: UIButton!
+    
     @IBOutlet var travelImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        selectionStyle = .none
-        
         setupUI()
     }
     
     func setupUI() {
+        selectionStyle = .none
+        
         titleLabel.textAlignment = .left
         titleLabel.font = .boldSystemFont(ofSize: 20)
         titleLabel.numberOfLines = 2
@@ -150,4 +150,5 @@ class TravelTableViewCell: UITableViewCell {
         let result = formatter.string(from: NSNumber(integerLiteral: price)) ?? ""
         return result
     }
+    
 }
