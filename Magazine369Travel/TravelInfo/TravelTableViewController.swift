@@ -71,6 +71,8 @@ class TravelTableViewController: UITableViewController {
             // 뷰 기준으로 나오는거니까 다르게 사용하면 제대로 적용 안될 가능성이 큼
             self.navigationController?.view.makeToast("광고 셀입니다", duration: 2.0, position: .bottom)
         }
+        
+        
     }
     
     // 좋아요 버튼 상태 변경
