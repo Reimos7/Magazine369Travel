@@ -71,6 +71,8 @@ class TravelTableViewController: UITableViewController {
             // position 위치, top이나 center는 키보드 때매 올라가니까 그럴때 사용하긴 함
             // 뷰 기준으로 나오는거니까 다르게 사용하면 제대로 적용 안될 가능성이 큼
             self.navigationController?.view.makeToast("광고 셀입니다", duration: 2.0, position: .bottom)
+            presentFeature()
+            
         } else {
             pushFeature()
         }
@@ -93,5 +95,20 @@ class TravelTableViewController: UITableViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "TravelViewController") as! TravelViewController
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    // MARK: - TravelAdViewController로 presnt를 통한 화면 이동 구현
+    private func presentFeature() {
+        print(#function)
+        
+       
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "TravelAdViewController") as! TravelAdViewController
+        // 스타일 적용
+        vc.modalPresentationStyle = .fullScreen
+        //vc.modalTransitionStyle = .coverVertical
+        present(vc, animated: true)
     }
 }
