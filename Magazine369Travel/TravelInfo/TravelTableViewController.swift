@@ -101,14 +101,12 @@ class TravelTableViewController: UITableViewController {
     // MARK: - TravelAdViewController로 presnt를 통한 화면 이동 구현
     private func presentFeature() {
         print(#function)
-        
-       
-        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "TravelAdViewController") as! TravelAdViewController
+        let nav = UINavigationController(rootViewController: vc)
         // 스타일 적용
-        vc.modalPresentationStyle = .fullScreen
+        nav.modalPresentationStyle = .fullScreen
         //vc.modalTransitionStyle = .coverVertical
-        present(vc, animated: true)
+        present(nav, animated: true)
     }
 }

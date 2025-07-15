@@ -471,49 +471,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo9-UY-WJj">
-                                <rect key="frame" x="100" y="60" width="193" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="R8Z-K3-ZgB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgv-GP-nDq">
-                                <rect key="frame" x="0.0" y="60" width="80" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="U6d-8S-4wf"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <connections>
-                                    <action selector="tappedCloseButton:" destination="GtT-4Z-bJd" eventType="touchUpInside" id="SWy-EZ-oxH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FES-Vg-JSD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FES-Vg-JSD" firstAttribute="bottom" secondItem="Uq4-Z3-p72" secondAttribute="bottom" constant="150" id="8NO-GO-RWa"/>
-                            <constraint firstAttribute="trailing" secondItem="eo9-UY-WJj" secondAttribute="trailing" constant="100" id="NdE-NV-EFo"/>
-                            <constraint firstItem="eo9-UY-WJj" firstAttribute="top" secondItem="UQG-1H-etf" secondAttribute="top" constant="60" id="NrE-b9-lkN"/>
-                            <constraint firstItem="wgv-GP-nDq" firstAttribute="leading" secondItem="FES-Vg-JSD" secondAttribute="leading" id="Oc8-I2-pIM"/>
                             <constraint firstItem="FES-Vg-JSD" firstAttribute="trailing" secondItem="Uq4-Z3-p72" secondAttribute="trailing" constant="30" id="exn-gs-fF8"/>
                             <constraint firstItem="Uq4-Z3-p72" firstAttribute="top" secondItem="FES-Vg-JSD" secondAttribute="top" constant="150" id="gDJ-SB-k7X"/>
-                            <constraint firstItem="eo9-UY-WJj" firstAttribute="leading" secondItem="UQG-1H-etf" secondAttribute="leading" constant="100" id="hZe-Fe-uJS"/>
                             <constraint firstItem="Uq4-Z3-p72" firstAttribute="leading" secondItem="FES-Vg-JSD" secondAttribute="leading" constant="30" id="kVt-6B-xn9"/>
-                            <constraint firstItem="eo9-UY-WJj" firstAttribute="leading" secondItem="wgv-GP-nDq" secondAttribute="trailing" constant="20" id="n3M-4M-rCA"/>
-                            <constraint firstItem="wgv-GP-nDq" firstAttribute="top" secondItem="UQG-1H-etf" secondAttribute="top" constant="60" id="ygr-1M-aVx"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="peQ-cF-kMD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="adTitleLabel" destination="Uq4-Z3-p72" id="j4g-RD-Q4C"/>
-                        <outlet property="closeButton" destination="wgv-GP-nDq" id="lun-sd-fMq"/>
-                        <outlet property="navigationTItle" destination="eo9-UY-WJj" id="qlx-gd-9Y9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDU-wC-IaN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
