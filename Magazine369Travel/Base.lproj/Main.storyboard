@@ -576,6 +576,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="peQ-cF-kMD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="Uq4-Z3-p72" id="IOE-cG-fNb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDU-wC-IaN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
