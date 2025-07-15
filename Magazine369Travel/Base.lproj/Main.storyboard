@@ -414,9 +414,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="B8G-Cn-beP">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="모두"/>
+                                <segment title="국내"/>
+                                <segment title="해외"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentedControlValueChanged:" destination="HMd-5L-hvl" eventType="valueChanged" id="dLb-yA-MQ0"/>
+                            </connections>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="131" id="yaj-ZC-xE3">
-                                <rect key="frame" x="0.0" y="50" width="393" height="131"/>
+                                <rect key="frame" x="0.0" y="82" width="393" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yaj-ZC-xE3" id="prw-G1-X6n">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="131"/>
@@ -430,6 +442,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="aq2-8x-igc"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="B8G-Cn-beP" id="Hwn-N7-qWN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJS-pO-f1h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
