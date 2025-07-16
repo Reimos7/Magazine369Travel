@@ -33,10 +33,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPL-eW-jos">
-                                <rect key="frame" x="10" y="128" width="487" height="30"/>
+                                <rect key="frame" x="10" y="128" width="467" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtY-Ts-aMG">
-                                        <rect key="frame" x="10" y="2" width="487" height="26"/>
+                                        <rect key="frame" x="10" y="2" width="447" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="JtY-Ts-aMG" secondAttribute="trailing" constant="-10" id="33q-J5-YZX"/>
+                                    <constraint firstAttribute="trailing" secondItem="JtY-Ts-aMG" secondAttribute="trailing" constant="10" id="33q-J5-YZX"/>
                                     <constraint firstItem="JtY-Ts-aMG" firstAttribute="top" secondItem="hPL-eW-jos" secondAttribute="top" constant="2" id="AGT-UY-xNC"/>
                                     <constraint firstItem="JtY-Ts-aMG" firstAttribute="leading" secondItem="hPL-eW-jos" secondAttribute="leading" constant="10" id="K3q-dJ-qAh"/>
                                     <constraint firstAttribute="height" constant="30" id="WWI-Op-TWx"/>
@@ -63,7 +63,7 @@
                             <constraint firstItem="rG6-KP-nhQ" firstAttribute="leading" secondItem="eKE-a4-6IS" secondAttribute="leading" constant="200" id="U4l-1Q-93e"/>
                             <constraint firstItem="rG6-KP-nhQ" firstAttribute="top" secondItem="eKE-a4-6IS" secondAttribute="top" id="sAL-Dl-Mke"/>
                             <constraint firstItem="hPL-eW-jos" firstAttribute="bottom" secondItem="eKE-a4-6IS" secondAttribute="bottom" id="sTj-Yj-iMO"/>
-                            <constraint firstItem="hPL-eW-jos" firstAttribute="trailing" secondItem="eKE-a4-6IS" secondAttribute="trailing" id="sbS-59-Bcy"/>
+                            <constraint firstItem="hPL-eW-jos" firstAttribute="trailing" secondItem="eKE-a4-6IS" secondAttribute="trailing" constant="-20" id="sbS-59-Bcy"/>
                         </constraints>
                     </view>
                 </subviews>

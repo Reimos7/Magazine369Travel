@@ -38,6 +38,10 @@ class CityTableViewCell: UITableViewCell {
         
         cityExplainBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
+        cityImage.clipsToBounds = true
+        cityImage.layer.cornerRadius = 20
+        // 특정 모서리 적용
+        cityImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
     }
     
     func configure(city: City) {
