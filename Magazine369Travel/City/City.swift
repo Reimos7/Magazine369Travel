@@ -7,6 +7,7 @@
 
 import Foundation
 
+// CodingKey
 struct City {
     let city_name: String
     let city_english_name: String

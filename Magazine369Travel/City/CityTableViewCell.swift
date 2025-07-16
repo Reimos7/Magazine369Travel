@@ -1,15 +1,15 @@
 //
-//  CitysTableViewCell.swift
+//  CityTableViewCell.swift
 //  Magazine369Travel
 //
-//  Created by Reimos on 7/15/25.
+//  Created by Reimos on 7/16/25.
 //
 
 import UIKit
 
 class CityTableViewCell: UITableViewCell {
 
-   static let identifier = "CityTableViewCell"
+    static let identifier = "CityTableViewCell"
     
     @IBOutlet var backgroundCellView: UIView!
     
@@ -17,13 +17,13 @@ class CityTableViewCell: UITableViewCell {
     
     @IBOutlet var cityNameLabel: UILabel!
     
-    @IBOutlet var cityExplainLabel: UILabel!
-    
     @IBOutlet var cityExplainBackgroundView: UIView!
+
+    @IBOutlet var cityExplainLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         cityImage.contentMode = .scaleAspectFill
         
         backgroundView?.backgroundColor = .red
@@ -35,25 +35,20 @@ class CityTableViewCell: UITableViewCell {
         cityNameLabel.textColor = .white
         cityExplainLabel.textColor = .white
         cityExplainLabel.textAlignment = .left
-        cityExplainLabel.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        
+        cityExplainBackgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        
     }
     
-    func configure(cityInfoCell: City) {
-        let url = URL(string: cityInfoCell.city_image)
+    func configure(city: City) {
+        let url = URL(string: city.city_image)
         
         cityImage.kf.setImage(with: url)
         
-        cityNameLabel.text = "\(cityInfoCell.city_name) | \(cityInfoCell.city_english_name)"
-        
-        cityExplainLabel.text = cityInfoCell.city_explain
+        cityNameLabel.text = "\(city.city_name) | \(city.city_english_name)"
+        cityExplainLabel.text = city.city_explain
     }
-    
-    
-   
-    
-    
-    
-    
-    
+
+
     
 }
