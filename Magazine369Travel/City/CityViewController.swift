@@ -118,8 +118,9 @@ extension CityViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as! CityTableViewCell
         
         let row = filteredCity()[indexPath.row]
-        cell.configure(city: row)
+        let keyword = textField.text?.trimmingCharacters(in: .whitespaces)
         
+        cell.configure(city: row, keyword: keyword)
         
         return cell 
     }

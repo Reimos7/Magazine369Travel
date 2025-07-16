@@ -44,15 +44,18 @@ class CityTableViewCell: UITableViewCell {
         cityImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
     }
     
-    func configure(city: City) {
+    func configure(city: City, keyword: String?) {
         let url = URL(string: city.city_image)
         
         cityImage.kf.setImage(with: url)
-        
         cityNameLabel.text = "\(city.city_name) | \(city.city_english_name)"
         cityExplainLabel.text = city.city_explain
+        
+        guard let keyword = keyword else {return}
+        
+        cityNameLabel.asColor(targetString: keyword, color: .red)
+        cityExplainLabel.asColor(targetString: keyword, color: .orange)
+        
     }
-
-
     
 }
