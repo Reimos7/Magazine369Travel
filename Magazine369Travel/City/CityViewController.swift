@@ -120,4 +120,21 @@ extension CityViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CityViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "CityDetailViewController") as! CityDetailViewController
+        
+        let row = city[indexPath.row]
+        
+        vc.image = row.city_image
+        vc.name = row.city_name
+        vc.explain = row.city_explain
+        
+        vc.modalPresentationStyle = .overFullScreen
+        
+       present(vc, animated: true)
+        
+    }
+    
 }
