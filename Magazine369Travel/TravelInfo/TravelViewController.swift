@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TravelViewController: UIViewController {
     
@@ -15,11 +16,13 @@ class TravelViewController: UIViewController {
     @IBOutlet var travelDescriptionLabel: UILabel!
     
     @IBOutlet var popButton: UIButton!
+    // 이전 화면에서 식판 받기 (데이터)
+    var travelInfomation: Travel = Travel(title: "", description: nil, travel_image: nil, grade: nil, save: nil, ad: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "관광지 화면"
-        
+        setupImage()
         setupLabel()
         setupButton()
     }
@@ -28,16 +31,29 @@ class TravelViewController: UIViewController {
         travelImageView.contentMode = .scaleAspectFill
         travelImageView.clipsToBounds = true
         travelImageView.layer.cornerRadius = 14
+        
+        guard let travelImageURL = travelInfomation.travel_image,
+              let url = URL(string: travelImageURL) else {
+            travelImageView.image = nil
+            return
+        }
+        
+        travelImageView.kf.setImage(with: url)
+        
     }
     
     func setupLabel() {
         traveltitleLabel.textAlignment = .center
-        traveltitleLabel.font = .boldSystemFont(ofSize: 20)
+        traveltitleLabel.font = .boldSystemFont(ofSize: 40)
+        
+        traveltitleLabel.text = travelInfomation.title
         
         // AutomaticDimension을 위해서 세팅
         travelDescriptionLabel.numberOfLines = 0
         travelDescriptionLabel.textAlignment = .center
-        travelDescriptionLabel.font = .boldSystemFont(ofSize: 18)
+        travelDescriptionLabel.font = .boldSystemFont(ofSize: 30)
+        
+        travelDescriptionLabel.text = travelInfomation.description
     }
     
     func setupButton() {

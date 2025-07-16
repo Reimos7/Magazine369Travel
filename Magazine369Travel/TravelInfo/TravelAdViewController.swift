@@ -10,7 +10,8 @@ import UIKit
 class TravelAdViewController: UIViewController {
     
     @IBOutlet var mainLabel: UILabel!
-    var mainLabelText: String?
+    // 이전 화면에서 데이터 받기
+    var adText: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,10 @@ class TravelAdViewController: UIViewController {
         // 네비게이션 좌측 상단 x 버튼 설정
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(tappedCloseButton))
         navigationItem.leftBarButtonItem?.tintColor = .black
-        
-        mainLabel.text = mainLabelText
+        // 이전 화면에서 데이터 받기
+        mainLabel.text = adText
         mainLabel.textAlignment = .center
-        mainLabel.font = .boldSystemFont(ofSize: 16)
+        mainLabel.font = .boldSystemFont(ofSize: 40)
         mainLabel.numberOfLines = 0
     }
     

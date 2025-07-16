@@ -75,7 +75,7 @@ class TravelTableViewController: UITableViewController {
             presentFeature(title: travelInfoCell.title)
             
         } else {
-            pushFeature()
+            pushFeature(index: indexPath.row)
         }
         
         
@@ -92,9 +92,14 @@ class TravelTableViewController: UITableViewController {
     }
     
     // MARK: - TravelViewController로 화면 이동 구현
-    private func pushFeature() {
+    private func pushFeature(index: Int) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "TravelViewController") as! TravelViewController
+        
+        // 데이터 전달
+        let row = travelInfo.travel[index]
+        vc.travelInfomation = row
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -106,7 +111,7 @@ class TravelTableViewController: UITableViewController {
         let vc = sb.instantiateViewController(withIdentifier: "TravelAdViewController") as! TravelAdViewController
         let nav = UINavigationController(rootViewController: vc)
         // 데이터 전달
-        vc.mainLabelText = title
+        vc.adText = title
         
         // 스타일 적용
         nav.modalPresentationStyle = .fullScreen
