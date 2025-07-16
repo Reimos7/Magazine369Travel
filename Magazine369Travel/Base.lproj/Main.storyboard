@@ -489,7 +489,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rRj-BP-Rmk">
-                                <rect key="frame" x="0.0" y="222" width="402" height="31"/>
+                                <rect key="frame" x="10" y="212" width="382" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="BmX-3j-TIt"/>
                                 </constraints>
@@ -498,40 +498,47 @@
                                     <segment title="국내"/>
                                     <segment title="해외"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="rrV-cH-PoD" eventType="valueChanged" id="4Zf-pK-LhC"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z0R-YB-ilD">
-                                <rect key="frame" x="0.0" y="262" width="402" height="495"/>
+                                <rect key="frame" x="0.0" y="252" width="402" height="505"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BKA-Ju-9Si">
-                                <rect key="frame" x="0.0" y="168" width="402" height="44"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7S-7a-GZ6">
+                                <rect key="frame" x="10" y="168" width="382" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="X36-qv-sOc"/>
+                                    <constraint firstAttribute="height" constant="34" id="dfN-PD-LUy"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="rrV-cH-PoD" id="yUK-KF-iSC"/>
+                                    <action selector="EditinDidEnd:" destination="rrV-cH-PoD" eventType="editingDidEnd" id="BcE-iz-hhp"/>
+                                    <action selector="EditingChanged:" destination="rrV-cH-PoD" eventType="editingChanged" id="K8O-Cu-wcJ"/>
                                 </connections>
-                            </searchBar>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eXf-yk-hlp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BKA-Ju-9Si" firstAttribute="leading" secondItem="eXf-yk-hlp" secondAttribute="leading" id="10b-yF-trg"/>
                             <constraint firstItem="eXf-yk-hlp" firstAttribute="bottom" secondItem="Z0R-YB-ilD" secondAttribute="bottom" id="KAb-h8-vto"/>
-                            <constraint firstItem="rRj-BP-Rmk" firstAttribute="leading" secondItem="eXf-yk-hlp" secondAttribute="leading" id="UN7-Vl-Mzo"/>
+                            <constraint firstItem="rRj-BP-Rmk" firstAttribute="top" secondItem="c7S-7a-GZ6" secondAttribute="bottom" constant="10" id="PlZ-fV-0Os"/>
+                            <constraint firstItem="rRj-BP-Rmk" firstAttribute="leading" secondItem="eXf-yk-hlp" secondAttribute="leading" constant="10" id="UN7-Vl-Mzo"/>
                             <constraint firstItem="Z0R-YB-ilD" firstAttribute="leading" secondItem="eXf-yk-hlp" secondAttribute="leading" id="UeZ-Hj-Sda"/>
                             <constraint firstItem="eXf-yk-hlp" firstAttribute="trailing" secondItem="Z0R-YB-ilD" secondAttribute="trailing" id="WdP-x5-4lL"/>
-                            <constraint firstItem="eXf-yk-hlp" firstAttribute="trailing" secondItem="rRj-BP-Rmk" secondAttribute="trailing" id="aSq-iB-bOV"/>
-                            <constraint firstItem="rRj-BP-Rmk" firstAttribute="top" secondItem="BKA-Ju-9Si" secondAttribute="bottom" constant="10" id="btD-ex-efE"/>
-                            <constraint firstItem="BKA-Ju-9Si" firstAttribute="top" secondItem="eXf-yk-hlp" secondAttribute="top" id="mEN-WR-Bas"/>
-                            <constraint firstItem="eXf-yk-hlp" firstAttribute="trailing" secondItem="BKA-Ju-9Si" secondAttribute="trailing" id="nd3-b0-pDl"/>
+                            <constraint firstItem="eXf-yk-hlp" firstAttribute="trailing" secondItem="rRj-BP-Rmk" secondAttribute="trailing" constant="10" id="aSq-iB-bOV"/>
+                            <constraint firstItem="eXf-yk-hlp" firstAttribute="trailing" secondItem="c7S-7a-GZ6" secondAttribute="trailing" constant="10" id="h8E-bh-lFB"/>
+                            <constraint firstItem="c7S-7a-GZ6" firstAttribute="top" secondItem="eXf-yk-hlp" secondAttribute="top" id="mzz-QP-me1"/>
+                            <constraint firstItem="c7S-7a-GZ6" firstAttribute="leading" secondItem="eXf-yk-hlp" secondAttribute="leading" constant="10" id="uRT-37-bGq"/>
                             <constraint firstItem="Z0R-YB-ilD" firstAttribute="top" secondItem="rRj-BP-Rmk" secondAttribute="bottom" constant="10" id="wWA-ng-9Zd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="o87-Bg-x66"/>
                     <connections>
+                        <outlet property="segmentControl" destination="rRj-BP-Rmk" id="0lr-sA-Yg2"/>
                         <outlet property="tableView" destination="Z0R-YB-ilD" id="YIX-DM-VAC"/>
+                        <outlet property="textField" destination="c7S-7a-GZ6" id="4cz-GB-cwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcw-g3-5EN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
