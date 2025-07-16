@@ -56,11 +56,14 @@ class CityViewController: UIViewController {
         guard let searchText = textField.text,
               !searchText.isEmpty else {return filteredCityList}
         
+        //공백 입력 경우, whitespace 처리
+        let trimmedText = searchText.trimmingCharacters(in: .whitespaces)
+        
         // 모두, 국내, 해외에서 필터링 후 -> 이거에 맞는 검색
         let filterResult = filteredCityList.filter {
-            $0.city_name.lowercased().contains(searchText) ||
-            $0.city_english_name.lowercased().contains(searchText) ||
-            $0.city_explain.lowercased().contains(searchText)
+            $0.city_name.lowercased().contains(trimmedText) ||
+            $0.city_english_name.lowercased().contains(trimmedText) ||
+            $0.city_explain.lowercased().contains(trimmedText)
         }
         
         return filterResult
