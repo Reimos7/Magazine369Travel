@@ -16,6 +16,12 @@ class CityViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    enum Region: Int {
+        case all
+        case domestic
+        case international
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,17 +43,19 @@ class CityViewController: UIViewController {
     }
     
     
-    // MARK: - 0,1,2 기준
+    // MARK: - Region Enum 기준
     func filteredCity() -> [City] {
         
         let filteredCityList: [City]
+        // 세그먼트 컨트롤 -> region enum으로 변경
+        let region = Region(rawValue: segmentControl.selectedSegmentIndex)
         
-        switch segmentControl.selectedSegmentIndex {
-        case 0: // 모두
+        switch region {
+        case .all:           // 모두
             filteredCityList = city
-        case 1: // 국내
+        case .domestic:      // 국내
             filteredCityList = city.filter {$0.domestic_travel == true}
-        case 2: // 해외
+        case .international: // 해외
             filteredCityList = city.filter {$0.domestic_travel == false}
         default:
             filteredCityList = city
@@ -71,15 +79,16 @@ class CityViewController: UIViewController {
     
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("0")
-        case 1:
-            print("1")
-        case 2:
-            print("2")
-        default:
-            print("?")
+        let region = Region(rawValue: sender.selectedSegmentIndex) ?? .all
+        
+        switch region {
+        case .all:
+            print(region.rawValue)
+        case .domestic:
+            print(region.rawValue)
+        case .international:
+            print(region.rawValue)
+        
         }
         tableView.reloadData()
     }
