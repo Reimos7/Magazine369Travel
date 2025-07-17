@@ -9,6 +9,9 @@ import UIKit
 
 class CityCollectionViewCell: UICollectionViewCell {
     
+    static let nibName = "CityCollectionViewCell"
+    static let identifier = "CityCollectionViewCell"
+    
     @IBOutlet var cityImage: UIImageView!
     
     @IBOutlet var cityNameLabel: UILabel!
@@ -43,6 +46,5 @@ class CityCollectionViewCell: UICollectionViewCell {
         cityImage.kf.setImage(with: url)
         cityNameLabel.text = "\(city.city_name) | \(city.city_english_name)"
         cityExplainLabel.text = city.city_explain
-        
     }
 }

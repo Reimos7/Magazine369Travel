@@ -29,31 +29,42 @@ class CityCollectionViewController: UIViewController {
         
         navigationItem.title = "인기 도시"
         
-        let xib = UINib(nibName: "CityCollectionViewCell", bundle: nil)
-        cityCollectionView.register(xib, forCellWithReuseIdentifier: "CityCollectionViewCell")
+        setupXib(xifNibName: CityCollectionViewCell.nibName, reuseIdentifier: CityCollectionViewCell.identifier)
         
         cityCollectionView.delegate = self
         cityCollectionView.dataSource = self
         
         searchBar.delegate = self
         
+        // collectionView 세팅 함수
+        configureCollectionView(sectionInsets: 16, minimumSpacing: 16, cellCount: 2, itemSpacing: 10, lineSpacing: 10, scrollDirectoin: .vertical)
+    }
+    
+    // xib 세팅 함수
+    func setupXib(xifNibName: String, reuseIdentifier: String) {
+        let xib = UINib(nibName: xifNibName, bundle: nil)
+        cityCollectionView.register(xib, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    // collectionView 세팅 함수
+    func configureCollectionView(sectionInsets: CGFloat, minimumSpacing: CGFloat, cellCount: CGFloat, itemSpacing: Int, lineSpacing: CGFloat, scrollDirectoin: UICollectionView.ScrollDirection) {
         let layout = UICollectionViewFlowLayout()
         
         // 너비
         let deviceWidth = UIScreen.main.bounds.width
         
         // 너비
-        let cellWidth = deviceWidth - (16 * 2) - (16 * 1)
+        let cellWidth = deviceWidth - (sectionInsets * 2) - (minimumSpacing * (cellCount - 1))
         
-        layout.itemSize = CGSize(width: cellWidth / 2, height: cellWidth / 1.4)
+        layout.itemSize = CGSize(width: cellWidth / cellCount, height: cellWidth / 1.4)
         layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         // 셀 사이 간격
-        layout.minimumInteritemSpacing = 10
+        layout.minimumInteritemSpacing = minimumSpacing
         //
-        layout.minimumLineSpacing = 10
+        layout.minimumLineSpacing = lineSpacing
         
-        layout.scrollDirection = .vertical
-        
+        layout.scrollDirection = scrollDirectoin
+    
         cityCollectionView.collectionViewLayout = layout
     }
     
@@ -101,9 +112,6 @@ extension CityCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCollectionViewCell", for: indexPath) as! CityCollectionViewCell
         
         let item = city[indexPath.item]
-        
-        cell.cityNameLabel.text = "\(item.city_name) | \(item.city_english_name)"
-        cell.cityExplainLabel.text = item.city_explain
         
         cell.configure(city: item)
         
