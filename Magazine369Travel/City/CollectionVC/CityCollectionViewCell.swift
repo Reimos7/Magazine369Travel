@@ -18,10 +18,6 @@ class CityCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
         cityImage.contentMode = .scaleAspectFill
-        //cityImage.backgroundColor = .yellow
-        
-        cityImage.layer.cornerRadius = cityImage.frame.size.width / 2
-        cityImage.clipsToBounds = true
         
         cityNameLabel.textAlignment = .center
         cityNameLabel.font = .boldSystemFont(ofSize: 17)
@@ -30,11 +26,15 @@ class CityCollectionViewCell: UICollectionViewCell {
         cityExplainLabel.textAlignment = .center
         cityExplainLabel.numberOfLines = 0
         
-//        cityImage.layer.cornerRadius = cityImage.frame.height/2
-//        cityImage.layer.borderWidth = 5
-//        cityImage.clipsToBounds = true
-//        cityImage.layer.borderColor = UIColor.blue.cgColor
-
+    }
+    
+    // 뷰컨트롤러에서 프레임이 결정이 되는 곳 
+    // 그래서, 버튼을 넓이 기준으로 깍는 것이 가능(넓이 프레임이 결정되니까)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        cityImage.clipsToBounds = true
+        cityImage.layer.cornerRadius = cityImage.frame.size.width / 2
     }
     
     func configure(city: City) {
