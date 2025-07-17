@@ -393,11 +393,11 @@
             </objects>
             <point key="canvasLocation" x="2850" y="1268"/>
         </scene>
-        <!--인기도시-->
+        <!--인기도시(테이블)-->
         <scene sceneID="f4I-Mv-u6q">
             <objects>
                 <navigationController id="eqN-aG-n7t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="인기도시" image="globe" catalog="system" id="rax-Yt-Yag"/>
+                    <tabBarItem key="tabBarItem" title="인기도시(테이블)" image="globe" catalog="system" id="rax-Yt-Yag"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xig-oT-xec">
                         <rect key="frame" x="0.0" y="124" width="402" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -598,6 +598,9 @@
                                     <segment title="국내"/>
                                     <segment title="해외"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentControllValueChanged:" destination="KHh-WF-KLL" eventType="valueChanged" id="bMU-WM-9TQ"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fpy-5g-bdP"/>
@@ -621,6 +624,7 @@
                     <navigationItem key="navigationItem" id="LgJ-ex-tL5"/>
                     <connections>
                         <outlet property="cityCollectionView" destination="Dhc-kb-TzM" id="N6l-Np-O2g"/>
+                        <outlet property="segementControl" destination="1nc-MD-TBi" id="HhV-si-pLJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JL1-XC-bMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -798,11 +802,11 @@
             </objects>
             <point key="canvasLocation" x="4510" y="1289"/>
         </scene>
-        <!--Item-->
+        <!--인기도시(컬렉션)-->
         <scene sceneID="zZn-f3-FEW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mPb-eU-WcL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OaQ-uW-TWg"/>
+                    <tabBarItem key="tabBarItem" title="인기도시(컬렉션)" image="globe.americas" catalog="system" id="OaQ-uW-TWg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="naf-uN-c02">
                         <rect key="frame" x="0.0" y="124" width="402" height="44"/>
@@ -821,6 +825,7 @@
     <resources>
         <image name="building.2.fill" catalog="system" width="108" height="128"/>
         <image name="globe" catalog="system" width="128" height="123"/>
+        <image name="globe.americas" catalog="system" width="128" height="123"/>
         <image name="hands.clap.fill" catalog="system" width="128" height="121"/>
         <image name="magazine.fill" catalog="system" width="110" height="128"/>
         <systemColor name="labelColor">

@@ -12,7 +12,15 @@ class CityCollectionViewController: UIViewController {
 
     @IBOutlet var cityCollectionView: UICollectionView!
     
-    let city = CityInfo().city
+    @IBOutlet var segementControl: UISegmentedControl!
+    
+    enum Region: Int {
+        case all
+        case domestic
+        case international
+    }
+    
+    var city = CityInfo().city
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +51,39 @@ class CityCollectionViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         cityCollectionView.collectionViewLayout = layout
+    }
+    
+    @IBAction func segmentControllValueChanged(_ sender: UISegmentedControl) {
+        let region = Region(rawValue: sender.selectedSegmentIndex) ?? .all
+        
+        let cityData = CityInfo().city
+        var filter: [City] = []
+        
+        switch region {
+        case .all:
+            filter = cityData
+            dump(region.rawValue)
+            
+        case .domestic:
+            for item in cityData {
+                if item.domestic_travel {
+                    filter.append(item)
+                }
+            }
+            dump(region.rawValue)
+            
+        case .international:
+            for item in cityData {
+                if !item.domestic_travel {
+                    filter.append(item)
+                }
+            }
+            dump(region.rawValue)
+        }
+        // 전체 데이터 공간에 필터된 데이터 담기 -> 데이터가 달라짐
+        city = filter
+        // 전체 데이터 담으면 다시 그려달라고 요청하기
+        cityCollectionView.reloadData()
     }
 }
 
