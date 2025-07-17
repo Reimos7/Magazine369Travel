@@ -624,6 +624,7 @@
                     <navigationItem key="navigationItem" id="LgJ-ex-tL5"/>
                     <connections>
                         <outlet property="cityCollectionView" destination="Dhc-kb-TzM" id="N6l-Np-O2g"/>
+                        <outlet property="searchBar" destination="lIX-oJ-bED" id="Sox-xZ-aEH"/>
                         <outlet property="segementControl" destination="1nc-MD-TBi" id="HhV-si-pLJ"/>
                     </connections>
                 </viewController>

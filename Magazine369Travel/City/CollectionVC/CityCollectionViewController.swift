@@ -14,6 +14,8 @@ class CityCollectionViewController: UIViewController {
     
     @IBOutlet var segementControl: UISegmentedControl!
     
+    @IBOutlet var searchBar: UISearchBar!
+    
     enum Region: Int {
         case all
         case domestic
@@ -32,6 +34,8 @@ class CityCollectionViewController: UIViewController {
         
         cityCollectionView.delegate = self
         cityCollectionView.dataSource = self
+        
+        searchBar.delegate = self
         
         let layout = UICollectionViewFlowLayout()
         
@@ -87,6 +91,7 @@ class CityCollectionViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension CityCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return city.count
@@ -108,6 +113,46 @@ extension CityCollectionViewController: UICollectionViewDataSource {
     
 }
 
+
+// MARK: - UICollectionViewDelegate
 extension CityCollectionViewController: UICollectionViewDelegate {
+    // TODO: - 컬렉션 뷰 연습
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
     
+}
+
+
+// MARK: - UISearchBarDelegate
+extension CityCollectionViewController: UISearchBarDelegate {
+    // 입력 할때마다 실행 됨
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let cityData = CityInfo().city
+        var filter: [City] = []
+        
+        let region = Region(rawValue: segementControl.selectedSegmentIndex) ?? .all
+        switch region {
+        case .all:
+            filter = cityData
+        case .domestic:
+            filter = cityData.filter {$0.domestic_travel}
+        case .international:// false ??
+            filter = cityData.filter {!$0.domestic_travel}
+        }
+        
+        // 입력 내용이 존재하면 region Enum의 결과에서 필터링된 리스트를 통해 검색하기
+        if !searchText.isEmpty {
+            filter = filter.filter {$0.city_name.lowercased().contains(searchText)}
+        }
+        
+//        if searchText.isEmpty {
+//            filter = cityData
+//        } else {
+//            filter = cityData.filter {$0.city_name.lowercased().contains(searchText.lowercased())} 
+//        }
+//        
+        city = filter
+        cityCollectionView.reloadData()
+    }
 }
