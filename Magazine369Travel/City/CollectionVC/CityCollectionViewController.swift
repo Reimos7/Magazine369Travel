@@ -112,8 +112,10 @@ extension CityCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityCollectionViewCell", for: indexPath) as! CityCollectionViewCell
         
         let item = city[indexPath.item]
+        // 서치바 공백제거
+        let keyword = searchBar.text?.trimmingCharacters(in: .whitespaces)
         
-        cell.configure(city: item)
+        cell.configure(city: item, keyword: keyword)
         
         return cell
     }

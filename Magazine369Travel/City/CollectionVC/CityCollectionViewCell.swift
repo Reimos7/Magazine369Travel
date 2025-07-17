@@ -40,11 +40,18 @@ class CityCollectionViewCell: UICollectionViewCell {
         cityImage.layer.cornerRadius = cityImage.frame.size.width / 2
     }
     
-    func configure(city: City) {
+    func configure(city: City, keyword: String?) {
         let url = URL(string: city.city_image)
         
         cityImage.kf.setImage(with: url)
         cityNameLabel.text = "\(city.city_name) | \(city.city_english_name)"
         cityExplainLabel.text = city.city_explain
+        
+        // keyword 색상 변경
+        guard let keyword = keyword else {return}
+        
+        cityNameLabel.asColor(targetString: keyword, color: .red)
+        cityExplainLabel.asColor(targetString: keyword, color: .blue)
+        
     }
 }
